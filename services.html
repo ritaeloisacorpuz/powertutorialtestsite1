@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>eTraining - myBiblioteque</title>
+  
+  <!-- 1. Link the external stylesheet (style.css) inside the <head> section -->
+  <link rel="stylesheet" href="style.css">
+  
+  <style>
+    .etraining-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      font-family: inherit;
+    }
+
+    /* SECTION 1: ANATOMY OF LEARNING A LANGUAGE (TOP) */
+    .anatomy-section {
+      text-align: center;
+      margin-bottom: 80px;
+      padding-top: 20px;
+    }
+
+    .anatomy-title {
+      font-size: 2.2rem;
+      font-weight: 300;
+      color: #222222;
+      letter-spacing: 1px;
+      margin-bottom: 50px;
+    }
+
+    .anatomy-diagram-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .anatomy-labels {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      text-align: right;
+    }
+
+    .anatomy-label-item {
+      font-size: 0.82rem;
+      color: #666666;
+      line-height: 1.3;
+      min-height: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .anatomy-dots {
+      display: flex;
+      gap: 6px;
+      justify-content: flex-end;
+      margin-top: 4px;
+    }
+
+    .anatomy-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+
+    .anatomy-image-container {
+      max-width: 450px;
+      width: 100%;
+    }
+
+    .anatomy-image-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 4px;
+    }
+
+    /* SECTION 2: SEE THE WORLD LIKE A LOCAL (MIDDLE) */
+    .local-grid-section {
+      text-align: center;
+      margin-bottom: 90px;
+    }
+
+    .local-title {
+      font-size: 2.2rem;
+      font-weight: 300;
+      font-family: Georgia, serif;
+      color: #111111;
+      margin-bottom: 10px;
+    }
+
+    .local-subtitle {
+      font-size: 0.85rem;
+      color: #777777;
+      margin-bottom: 50px;
+    }
+
+    .local-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .local-card {
+      text-align: left;
+    }
+
+    .local-card-img {
+      width: 100%;
+      height: 220px;
+      background-color: #f2f2f2;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 15px;
+    }
+
+    .local-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .local-card-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #111111;
+      margin-bottom: 2px;
+    }
+
+    .local-card-guides {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #222222;
+      margin-bottom: 8px;
+    }
+
+    .local-card-desc {
+      font-size: 0.8rem;
+      color: #666666;
+      line-height: 1.5;
+    }
+
+    /* SECTION 3: 6-STEP PROCESS GRID (BOTTOM) */
+    .steps-section {
+      text-align: center;
+      padding: 40px 0 60px 0;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px 30px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .step-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .step-icon-box {
+      width: 60px;
+      height: 60px;
+      border: 1.5px solid #2c9384;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      color: #2c9384;
+      font-size: 1.5rem;
+    }
+
+    .step-label {
+      font-size: 0.8rem;
+      letter-spacing: 1.5px;
+      color: #555555;
+      text-transform: uppercase;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    .step-text-desc {
+      font-size: 0.82rem;
+      color: #666666;
+      line-height: 1.6;
+      max-width: 280px;
+    }
+
+    /* RESPONSIVE DESIGN (TABLET & MOBILE) */
+    @media (max-width: 850px) {
+      .local-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .anatomy-diagram-wrapper {
+        flex-direction: column;
+        text-align: center;
+      }
+      .anatomy-labels {
+        text-align: center;
+      }
+      .anatomy-dots {
+        justify-content: center;
+      }
+      .local-grid {
+        grid-template-columns: 1fr;
+      }
+      .steps-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 2. Header placeholder at the very top inside <body> -->
+  <div id="header-placeholder"></div>
+
+  <!-- MAIN ETRAINING CONTENT CONTAINER -->
+  <main class="etraining-container">
+
+    <!-- ==========================================
+         SECTION 1: ANATOMY OF LEARNING A LANGUAGE
+         ========================================== -->
+    <section class="anatomy-section">
+      <h1 class="anatomy-title">Anatomy of Learning a Language</h1>
+      
+      <div class="anatomy-diagram-wrapper">
+        <div class="anatomy-labels">
+          <div class="anatomy-label-item">Sentence Construction</div>
+          <div class="anatomy-label-item">Grammar</div>
+          <div class="anatomy-label-item">Vocabulary</div>
+          <div class="anatomy-label-item">
+            Stylistic Device &amp;<br>Context of Use
+            <div class="anatomy-dots">
+              <span class="anatomy-dot" style="background:#82c4c3;"></span>
+              <span class="anatomy-dot" style="background:#f2994a;"></span>
+              <span class="anatomy-dot" style="background:#eb5757;"></span>
+              <span class="anatomy-dot" style="background:#27ae60;"></span>
+              <span class="anatomy-dot" style="background:#2f80ed;"></span>
+              <span class="anatomy-dot" style="background:#333333;"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="anatomy-image-container">
+          <img src="images/anatomy-books.jpg" alt="Anatomy of Learning a Language Books Diagram">
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 2: SEE THE WORLD LIKE A LOCAL
+         ========================================== -->
+    <section class="local-grid-section">
+      <h2 class="local-title">See the world like a local</h2>
+      <p class="local-subtitle">Lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+
+      <div class="local-grid">
+        <!-- Item 1 -->
+        <div class="local-card">
+          <div class="local-card-img">
+            <img src="images/guide-greece.jpg" alt="Crete, Greece">
+          </div>
+          <h3 class="local-card-title">Crete, Greece</h3>
+          <p class="local-card-guides">3 Local guides</p>
+          <p class="local-card-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="local-card">
+          <div class="local-card-img">
+            <img src="images/guide-spain.jpg" alt="Barcelona, Spain">
+          </div>
+          <h3 class="local-card-title">Barcelona, Spain</h3>
+          <p class="local-card-guides">54 Local guides</p>
+          <p class="local-card-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="local-card">
+          <div class="local-card-img">
+            <img src="images/guide-peru.jpg" alt="Machu Picchu, Peru">
+          </div>
+          <h3 class="local-card-title">Machu Picchu, Peru</h3>
+          <p class="local-card-guides">34 Local Guides</p>
+          <p class="local-card-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="local-card">
+          <div class="local-card-img">
+            <img src="images/guide-qatar.jpg" alt="Doha, Qatar">
+          </div>
+          <h3 class="local-card-title">Doha, Qatar</h3>
+          <p class="local-card-guides">1 Local guide</p>
+          <p class="local-card-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="local-card">
+          <div class="local-card-img">
+            <img src="images/guide-rhodes.jpg" alt="Rhodes, Greece">
+          </div>
+          <h3 class="local-card-title">Rhodes, Greece</h3>
+          <p class="local-card-guides">6 Local guides</p>
+          <p class="local-card-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+        </div>
+
+        <!-- Item 6 -->
+        <div class="local-card">
+          <div class="local-card-img">
+            <img src="images/guide-usa.jpg" alt="New York, USA">
+          </div>
+          <h3 class="local-card-title">New York, USA</h3>
+          <p class="local-card-guides">132 Local guides</p>
+          <p class="local-card-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 3: 6-STEP PROCESS GRID
+         ========================================== -->
+    <section class="steps-section">
+      <div class="steps-grid">
+        <!-- Step 1 -->
+        <div class="step-item">
+          <div class="step-icon-box">&#9993;</div>
+          <div class="step-label">STEP #1</div>
+          <p class="step-text-desc">Send us a message with the following information: name, age, gender, education</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step-item">
+          <div class="step-icon-box">@</div>
+          <div class="step-label">STEP #2</div>
+          <p class="step-text-desc">Wait for the acknowledgement e-mail and instructions to proceed.</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step-item">
+          <div class="step-icon-box">&#129689;</div>
+          <div class="step-label">STEP #3</div>
+          <p class="step-text-desc">Make the 50% downpayment and send a screenshot to admin@hawthorneconsultancymanila.com</p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="step-item">
+          <div class="step-icon-box">&#9881;</div>
+          <div class="step-label">STEP #4</div>
+          <p class="step-text-desc">You will be asked to attend an assessment meeting &amp; sign-up in this website as a Member.</p>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="step-item">
+          <div class="step-icon-box">&#128230;</div>
+          <div class="step-label">STEP #5</div>
+          <p class="step-text-desc">Your English language skills will be evaluated and rated to prepare the right curriculum.</p>
+        </div>
+
+        <!-- Step 6 -->
+        <div class="step-item">
+          <div class="step-icon-box">&#9997;</div>
+          <div class="step-label">STEP #6</div>
+          <p class="step-text-desc">Weekly discussion and homework-taking until covered program is finished.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 3. Footer placeholder at the very bottom right before </body> -->
+  <div id="footer-placeholder"></div>
+
+  <!-- 4. Loader script directly underneath the footer placeholder -->
+  <script src="include.js"></script>
+
+</body>
+</html>

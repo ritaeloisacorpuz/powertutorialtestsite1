@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cleaning Appointment Booking Form - Maid on Demand</title>
+  
+  <!-- 1. Link external stylesheet inside <head> -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Font Awesome for icons & styling -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- 2. Header Placeholder at the very top inside <body> -->
+  <div id="header-placeholder"></div>
+
+  <!-- MAIN CONTENT AREA -->
+  <main class="booking-page">
+    <div class="booking-container">
+      
+      <!-- Page Title & Instructions -->
+      <div class="booking-header-text">
+        <h1 class="page-title">Cleaning Appointment Booking Form</h1>
+        <p class="subtitle">Get ready to have more time and rest !</p>
+        <p class="instructions">
+          Input the details of your cleaning appointment in the form underneath and follow the payment instructions below the form. Make sure you notify us via Viber and mobile text message at 0956-400-1626 to notify us when you have made the booking so we can check our e-mails immediately.
+        </p>
+      </div>
+
+      <!-- Main Booking Form Card -->
+      <div class="booking-card">
+        <p class="form-banner-text">Book a Cleaning Appointment Today !</p>
+        
+        <!-- Form submitting to Cloudflare Worker to send data to Ateneo Email -->
+        <form action="https://contactformhandler.rita-eloisa-corpuz.workers.dev" method="POST" class="booking-form">
+          
+          <!-- First Name & Last Name -->
+          <div class="form-row two-col">
+            <div class="form-group">
+              <label for="firstName">First name *</label>
+              <input type="text" id="firstName" name="firstName" required>
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last name *</label>
+              <input type="text" id="lastName" name="lastName" required>
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+
+          <!-- Cellphone Number -->
+          <div class="form-group">
+            <label for="cellphone">Cellphone Number *</label>
+            <input type="tel" id="cellphone" name="cellphone" required>
+          </div>
+
+          <!-- Type of Cleaning Service Requested -->
+          <div class="form-group checkbox-group">
+            <label class="group-label">Indicate Type of Cleaning Service Requested *</label>
+            <label class="custom-checkbox">
+              <input type="checkbox" name="serviceType[]" value="Cleaning Lady">
+              <span class="checkmark"></span>
+              Cleaning Lady
+            </label>
+            <label class="custom-checkbox">
+              <input type="checkbox" name="serviceType[]" value="Cleaning Lady with Equipment">
+              <span class="checkmark"></span>
+              Cleaning Lady with Equipment
+            </label>
+            <label class="custom-checkbox">
+              <input type="checkbox" name="serviceType[]" value="Party Staff">
+              <span class="checkmark"></span>
+              Party Staff
+            </label>
+            <label class="custom-checkbox">
+              <input type="checkbox" name="serviceType[]" value="Private Chef or Kitchen Staff">
+              <span class="checkmark"></span>
+              Private Chef or Kitchen Staff
+            </label>
+            <label class="custom-checkbox">
+              <input type="checkbox" name="serviceType[]" value="Others">
+              <span class="checkmark"></span>
+              Others
+            </label>
+          </div>
+
+          <!-- If others, please explain -->
+          <div class="form-group">
+            <label for="othersExplanation">If others, please explain</label>
+            <input type="text" id="othersExplanation" name="othersExplanation">
+          </div>
+
+          <!-- Location of site to be cleaned -->
+          <div class="form-group radio-group">
+            <label class="group-label">Location of site to be cleaned</label>
+            <label class="custom-radio">
+              <input type="radio" name="location" value="Makati">
+              <span class="radiomark"></span>
+              Makati
+            </label>
+            <label class="custom-radio">
+              <input type="radio" name="location" value="BGC">
+              <span class="radiomark"></span>
+              BGC
+            </label>
+            <label class="custom-radio">
+              <input type="radio" name="location" value="Ortigas">
+              <span class="radiomark"></span>
+              Ortigas
+            </label>
+            <label class="custom-radio">
+              <input type="radio" name="location" value="San Juan-Mandaluyong">
+              <span class="radiomark"></span>
+              San Juan-Mandaluyong
+            </label>
+            <label class="custom-radio">
+              <input type="radio" name="location" value="Quezon City">
+              <span class="radiomark"></span>
+              Quezon City
+            </label>
+            <label class="custom-radio">
+              <input type="radio" name="location" value="Manila-Pasay">
+              <span class="radiomark"></span>
+              Manila-Pasay
+            </label>
+            <label class="custom-radio">
+              <input type="radio" name="location" value="Other areas">
+              <span class="radiomark"></span>
+              Other areas
+            </label>
+          </div>
+
+          <!-- Complete Address -->
+          <div class="form-group">
+            <label for="address">Complete Address of site to be cleaned *</label>
+            <input type="text" id="address" name="address" required>
+          </div>
+
+          <!-- Size, Bathrooms, Rooms -->
+          <div class="form-group">
+            <label for="propertySize">Indicate size in square meters, the number of bathrooms and number of rooms *</label>
+            <input type="text" id="propertySize" name="propertySize" required>
+          </div>
+
+          <!-- Special Instructions -->
+          <div class="form-group">
+            <label for="specialInstructions">Indicate special instructions</label>
+            <input type="text" id="specialInstructions" name="specialInstructions">
+          </div>
+
+          <!-- Date Options Header -->
+          <p class="date-options-subtext">
+            Indicate five (5) preferred Cleaning dates with time below. We will match it with the Cleaning Lady's schedule and confirm through Viber and e-mail.
+          </p>
+
+          <!-- Option #1 -->
+          <div class="date-option-block">
+            <label class="option-title">Option #1</label>
+            <div class="datetime-grid">
+              <div class="field-item">
+                <label>Month</label>
+                <select name="opt1_month">
+                  <option value="" disabled selected></option>
+                  <option value="January">January</option>
+                  <option value="February">February</option>
+                  <option value="March">March</option>
+                  <option value="April">April</option>
+                  <option value="May">May</option>
+                  <option value="June">June</option>
+                  <option value="July">July</option>
+                  <option value="August">August</option>
+                  <option value="September">September</option>
+                  <option value="October">October</option>
+                  <option value="November">November</option>
+                  <option value="December">December</option>
+                </select>
+              </div>
+              <div class="field-item">
+                <label>Day</label>
+                <input type="number" name="opt1_day" min="1" max="31">
+              </div>
+              <div class="field-item">
+                <label>Year</label>
+                <input type="number" name="opt1_year" min="2026" max="2030">
+              </div>
+              <div class="field-item">
+                <label>Time</label>
+                <input type="time" name="opt1_time">
+              </div>
+            </div>
+          </div>
+
+          <!-- Option #2 -->
+          <div class="date-option-block">
+            <label class="option-title">Option #2</label>
+            <div class="datetime-grid">
+              <div class="field-item">
+                <label>Month</label>
+                <select name="opt2_month">
+                  <option value="" disabled selected></option>
+                  <option value="January">January</option>
+                  <option value="February">February</option>
+                  <option value="March">March</option>
+                  <option value="April">April</option>
+                  <option value="May">May</option>
+                  <option value="June">June</option>
+                  <option value="July">July</option>
+                  <option value="August">August</option>
+                  <option value="September">September</option>
+                  <option value="October">October</option>
+                  <option value="November">November</option>
+                  <option value="December">December</option>
+                </select>
+              </div>
+              <div class="field-item">
+                <label>Day</label>
+                <input type="number" name="opt2_day" min="1" max="31">
+              </div>
+              <div class="field-item">
+                <label>Year</label>
+                <input type="number" name="opt2_year" min="2026" max="2030">
+              </div>
+              <div class="field-item">
+                <label>Time</label>
+                <input type="time" name="opt2_time">
+              </div>
+            </div>
+          </div>
+
+          <!-- Option #3 -->
+          <div class="date-option-block">
+            <label class="option-title">Option #3</label>
+            <div class="datetime-grid">
+              <div class="field-item">
+                <label>Month</label>
+                <select name="opt3_month">
+                  <option value="" disabled selected></option>
+                  <option value="January">January</option>
+                  <option value="February">February</option>
+                  <option value="March">March</option>
+                  <option value="April">April</option>
+                  <option value="May">May</option>
+                  <option value="June">June</option>
+                  <option value="July">July</option>
+                  <option value="August">August</option>
+                  <option value="September">September</option>
+                  <option value="October">October</option>
+                  <option value="November">November</option>
+                  <option value="December">December</option>
+                </select>
+              </div>
+              <div class="field-item">
+                <label>Day</label>
+                <input type="number" name="opt3_day" min="1" max="31">
+              </div>
+              <div class="field-item">
+                <label>Year</label>
+                <input type="number" name="opt3_year" min="2026" max="2030">
+              </div>
+              <div class="field-item">
+                <label>Time</label>
+                <input type="time" name="opt3_time">
+              </div>
+            </div>
+          </div>
+
+          <!-- Option #4 -->
+          <div class="date-option-block">
+            <label class="option-title">Option #4</label>
+            <div class="datetime-grid">
+              <div class="field-item">
+                <label>Month</label>
+                <select name="opt4_month">
+                  <option value="" disabled selected></option>
+                  <option value="January">January</option>
+                  <option value="February">February</option>
+                  <option value="March">March</option>
+                  <option value="April">April</option>
+                  <option value="May">May</option>
+                  <option value="June">June</option>
+                  <option value="July">July</option>
+                  <option value="August">August</option>
+                  <option value="September">September</option>
+                  <option value="October">October</option>
+                  <option value="November">November</option>
+                  <option value="December">December</option>
+                </select>
+              </div>
+              <div class="field-item">
+                <label>Day</label>
+                <input type="number" name="opt4_day" min="1" max="31">
+              </div>
+              <div class="field-item">
+                <label>Year</label>
+                <input type="number" name="opt4_year" min="2026" max="2030">
+              </div>
+              <div class="field-item">
+                <label>Time</label>
+                <input type="time" name="opt4_time">
+              </div>
+            </div>
+          </div>
+
+          <!-- Option #5 -->
+          <div class="date-option-block">
+            <label class="option-title">Option #5</label>
+            <div class="datetime-grid">
+              <div class="field-item">
+                <label>Month</label>
+                <select name="opt5_month">
+                  <option value="" disabled selected></option>
+                  <option value="January">January</option>
+                  <option value="February">February</option>
+                  <option value="March">March</option>
+                  <option value="April">April</option>
+                  <option value="May">May</option>
+                  <option value="June">June</option>
+                  <option value="July">July</option>
+                  <option value="August">August</option>
+                  <option value="September">September</option>
+                  <option value="October">October</option>
+                  <option value="November">November</option>
+                  <option value="December">December</option>
+                </select>
+              </div>
+              <div class="field-item">
+                <label>Day</label>
+                <input type="number" name="opt5_day" min="1" max="31">
+              </div>
+              <div class="field-item">
+                <label>Year</label>
+                <input type="number" name="opt5_year" min="2026" max="2030">
+              </div>
+              <div class="field-item">
+                <label>Time</label>
+                <input type="time" name="opt5_time">
+              </div>
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="form-submit-wrapper">
+            <button type="submit" class="btn-submit-booking">Submit</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- NEW SIMPLIFIED ORDER & PAYMENT INSTRUCTIONS SECTION -->
+      <section class="instructions-section">
+        <h2 class="instructions-main-title">Order & Payment Instructions</h2>
+        
+        <!-- STEP 1 -->
+        <div class="step-row">
+          <div class="step-media">
+            <img src="images/step1-laptop.jpg" alt="Get the Details">
+          </div>
+          <div class="step-content">
+            <span class="step-number">STEP # 01</span>
+            <h3 class="step-heading">GET THE DETAILS</h3>
+            <p class="step-text">
+              Get the details of the eBook or Netclip you want to purchase. Indicate these details in the order form below. Bratinela Books and all eBooks in the eLibrary need a 3 to 5 day lead time. The ones in the eShelves and the eZines are readily available for send out.
+            </p>
+          </div>
+        </div>
+
+        <hr class="step-divider">
+
+        <!-- STEP 2 -->
+        <div class="step-row reverse">
+          <div class="step-content">
+            <span class="step-number">STEP # 02</span>
+            <h3 class="step-heading">PAY</h3>
+            <p class="step-text">
+              Make the bank payment to the authorized Hawthorne Landbank passbook-only Savings Account Number (3731027071) and upload a screenshot of your payment in the order form below.
+            </p>
+          </div>
+          <div class="step-media">
+            <img src="images/step2-calculator.jpg" alt="Pay Instructions">
+          </div>
+        </div>
+
+        <hr class="step-divider">
+
+        <!-- STEP 3 -->
+        <div class="step-row">
+          <div class="step-media">
+            <img src="images/step3-order.jpg" alt="Order Instructions">
+          </div>
+          <div class="step-content">
+            <span class="step-number">STEP # 03</span>
+            <h3 class="step-heading">ORDER</h3>
+            <p class="step-text">
+              Order the eBook or netclip you want through the Order Form below. Be sure to upload your Payment Receipt with your email address handwritten on it. That's where myBiblioteque will send the eBook or Netclip.
+            </p>
+          </div>
+        </div>
+
+        <hr class="step-divider">
+
+        <!-- STEP 4 -->
+        <div class="step-row reverse">
+          <div class="step-content">
+            <span class="step-number">STEP # 04</span>
+            <h3 class="step-heading">WAIT FOR EMAIL ADVICE</h3>
+            <p class="step-text">
+              myBiblioteque Admin will send you an e-mail when you will receive your eBook or Netclip.
+            </p>
+          </div>
+          <div class="step-media">
+            <img src="images/step4-phone.jpg" alt="Wait for Email Advice">
+          </div>
+        </div>
+
+      </section>
+    </div>
+  </main>
+
+  <!-- 3. Footer Placeholder at the very bottom right before </body> -->
+  <div id="footer-placeholder"></div>
+
+  <!-- 4. Loader script directly underneath footer placeholder -->
+  <script src="include.js"></script>
+</body>
+</html>
