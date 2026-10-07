@@ -1,72 +1,120 @@
-<footer class="site-footer">
-  <!-- Upper Footer Section -->
-  <div class="footer-top-grid">
-    <div class="footer-col">
-      <h4>MENU</h4>
+<style>
+  /* Header Container Resets & Base */
+  .site-header {
+    background-color: #000000;
+    width: 100%;
+    position: relative;
+    z-index: 1000;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    height: 70px;
+    position: relative;
+  }
+
+  /* Overlapping Logo Container */
+  .logo-container {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    background-color: #000000;
+    padding: 15px 20px 25px 20px;
+    z-index: 1001;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  }
+
+  .logo-container img.logo-img {
+    height: 80px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+  }
+
+  /* Main Navigation Styling */
+  .main-nav {
+    margin-left: auto;
+  }
+
+  .main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .main-nav ul li {
+    margin: 0;
+    padding: 0;
+  }
+
+  .main-nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    transition: opacity 0.2s ease-in-out;
+  }
+
+  .main-nav ul li a:hover {
+    opacity: 0.75;
+  }
+
+  /* Responsive Adjustments for Mobile / Tablet Screens */
+  @media (max-width: 991px) {
+    .header-inner {
+      height: 60px;
+    }
+
+    .logo-container {
+      padding: 10px 15px 15px 15px;
+      left: 15px;
+    }
+
+    .logo-container img.logo-img {
+      height: 55px;
+    }
+
+    .main-nav ul {
+      overflow-x: auto;
+      gap: 16px;
+      padding-bottom: 5px;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .main-nav ul li a {
+      font-size: 0.8rem;
+    }
+  }
+</style>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo-container">
+      <img src="g_logo_mod_final_jpeg.jpg" alt="MOD Logo" class="logo-img">
+    </div>
+    <nav class="main-nav">
       <ul>
-        <li><a href="/index.html">MOD Home</a></li>
-        <li><a href="/cleaners.html">Meet the Cleaners</a></li>
-        <li><a href="/services.html">Services</a></li>
-        <li><a href="/promos.html">Promos</a></li>
-        <li><a href="/booking.html">Booking & Payment Instructions</a></li>
-        <li><a href="/faq.html">FAQs</a></li>
-        <li><a href="/contact.html">Contact MOD</a></li>
-        <li><a href="/blog.html">MOD BLOG: Maldita Speaks</a></li>
-        <li><a href="/affiliate.html">MOD Affiliate Program</a></li>
-        <li><a href="/directory.html">The Blue Pages Partner Directory</a></li>
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/about.html">About Power Tutorial</a></li>
+        <li><a href="/services.html">Tutorial Services</a></li>
+        <li><a href="/meet.html">Meet the Power Tutors</a></li>
+        <li><a href="/publicdirectory.html">Public Directory</a></li>
+        <li><a href="/booking.html">Booking a Tutorial</a></li>
+        <li><a href="/payment.html">Payment Instructions</a></li>
+        <li><a href="https://www.mybiblioteque.com/create-your-tutor-profile">Create your Tutor Profile</a></li>
+        <li><a href="/campuschronicles.html">Blog</a></li>
       </ul>
-    </div>
-    
-    <div class="footer-col">
-      <h4>ABOUT US</h4>
-      <p>We are a cleaning company that cares. We professionalized the cleaning business because we believe that cleanliness is necessary for a good quality of life...</p>
-      <br>
-      <p>You deserve to have it all. We will help you make it possible.</p>
-      <br>
-      <p><strong>Contact us:</strong> maid-on-demand@hawthorneconsultancymanila.com</p>
-      <p><strong>Phone:</strong> 0956-400-1626</p>
-    </div>
-
-    <div class="footer-col">
-      <h4>BOOKING FEE DEPOSIT</h4>
-      <p>MOD's twenty-five percent (25%) booking fee deposit — which serves as Consultant's Fee — can only be paid through deposit to the authorized Hawthorne Passbook-Access only Peso Savings Account (3731027071)...</p>
-    </div>
+    </nav>
   </div>
-
-  <hr class="footer-divider">
-
-  <!-- Centered Branding -->
-  <div class="footer-brand-center">
-    <h3>MOD</h3>
-    <p>CLEANING COMPANY | MAID-ON-DEMAND</p>
-    <small>©2026 MOD is a brand developed by Hawthorne Consultancy for its client, Exemplary Cleaning Service.</small>
-  </div>
-
-  <hr class="footer-divider">
-
-  <!-- Lower Footer Section -->
-  <div class="footer-bottom-grid">
-    <div class="footer-col">
-      <h4>HAWTHORNE BRANDS</h4>
-      <ul>
-        <li><a href="#">myBiblioteque</a></li>
-        <li><a href="#">Power Tutorial</a></li>
-        <li><a href="#">Hawthorne Consultancy</a></li>
-        <li><a href="#">MalditaSpeaks</a></li>
-        <li><a href="#">Maid-on-Demand</a></li>
-        <li><a href="#">The Blue Pages</a></li>
-        <li><a href="#">Lingua Franca</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h4>PAYMENT POLICY</h4>
-      <p>All Hawthorne payments are only accepted through deposit to the authorized Hawthorne passbook-access-only Peso Savings Account Number (3731027071)...</p>
-    </div>
-
-    <div class="footer-col">
-      <h4>RECEIPT/INVOICE POLICY</h4>
-      <p>Hawthorne only issues Invoices but DOES NOT issue Receipts because the "Official Receipt" (OR) has been phased out as a primary document for the sale of services...</p>
-    </div>
-  </div>
-</footer>
+</header>
