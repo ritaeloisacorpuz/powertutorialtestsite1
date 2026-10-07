@@ -1,5 +1,5 @@
 <style>
-  /* Header Container Resets & Base */
+  /* Header Base Styles */
   .site-header {
     background-color: #000000;
     width: 100%;
@@ -9,38 +9,18 @@
   }
 
   .header-inner {
-    max-width: 1300px;
+    max-width: 1200px;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 0 20px;
-    height: 70px;
+    min-height: 60px;
     position: relative;
   }
 
-  /* Overlapping Logo Container */
-  .logo-container {
-    position: absolute;
-    top: 0;
-    left: 20px;
-    background-color: #000000;
-    padding: 15px 20px 25px 20px;
-    z-index: 1001;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-  }
-
-  .logo-container img.logo-img {
-    height: 80px;
-    width: auto;
-    display: block;
-    object-fit: contain;
-  }
-
-  /* Main Navigation Styling - Pushed Right to Clear Logo */
+  /* Desktop Navigation */
   .main-nav {
-    margin-left: auto;
-    padding-left: 180px; /* Offset to clear the logo width */
     width: 100%;
   }
 
@@ -50,21 +30,22 @@
     padding: 0;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    gap: 18px; /* Slightly tighter gap to prevent text wrapping */
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
   }
 
   .main-nav ul li {
     margin: 0;
-    padding: 0;
+    padding: 8px 0;
   }
 
   .main-nav ul li a {
     color: #ffffff;
     text-decoration: none;
-    font-size: 0.88rem;
+    font-size: 0.9rem;
     font-weight: 400;
-    letter-spacing: 0.3px;
+    letter-spacing: 0.5px;
     white-space: nowrap;
     transition: opacity 0.2s ease-in-out;
   }
@@ -73,50 +54,62 @@
     opacity: 0.75;
   }
 
-  /* Responsive Adjustments for Mobile / Tablet Screens */
-  @media (max-width: 1100px) {
+  /* Mobile Toggle Button */
+  .mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    text-align: right;
+  }
+
+  /* Mobile Responsive Adaptations */
+  @media (max-width: 850px) {
+    .header-inner {
+      padding: 10px 20px;
+    }
+
+    .mobile-menu-toggle {
+      display: block;
+    }
+
     .main-nav {
-      padding-left: 140px;
+      display: none;
+      width: 100%;
+      padding-bottom: 15px;
+    }
+
+    .main-nav.is-open {
+      display: block;
     }
 
     .main-nav ul {
-      overflow-x: auto;
-      gap: 14px;
-      padding-bottom: 5px;
-      -webkit-overflow-scrolling: touch;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .header-inner {
-      height: 60px;
-    }
-
-    .logo-container {
-      padding: 10px 15px 15px 15px;
-      left: 15px;
-    }
-
-    .logo-container img.logo-img {
-      height: 55px;
-    }
-
-    .main-nav {
-      padding-left: 100px;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
     }
 
     .main-nav ul li a {
-      font-size: 0.8rem;
+      font-size: 0.95rem;
+      display: block;
+      padding: 6px 0;
     }
   }
 </style>
 
 <header class="site-header">
   <div class="header-inner">
-    <div class="logo-container">
-      <img src="g_logo_mod_final_jpeg.jpg" alt="MOD Logo" class="logo-img">
-    </div>
-    <nav class="main-nav">
+    <!-- Mobile Hamburger Button -->
+    <button class="mobile-menu-toggle" id="mobileMenuBtn" aria-label="Toggle Navigation">
+      &#9776; Menu
+    </button>
+
+    <!-- Navigation Menu -->
+    <nav class="main-nav" id="mainNav">
       <ul>
         <li><a href="/index.html">Home</a></li>
         <li><a href="/about.html">About Power Tutorial</a></li>
@@ -131,3 +124,15 @@
     </nav>
   </div>
 </header>
+
+<script>
+  // Simple toggle for mobile navigation menu
+  document.addEventListener("click", function (e) {
+    if (e.target && e.target.id === "mobileMenuBtn") {
+      var nav = document.getElementById("mainNav");
+      if (nav) {
+        nav.classList.toggle("is-open");
+      }
+    }
+  });
+</script>
