@@ -17,11 +17,6 @@
   --bg-light-gray: #f8f9fa;      /* Page background neutral */
   --border-light: #e0e0e0;       /* Divider line color */
 
-  /* Header & Footer Colors */
-  --header-bg: #000000;          /* Black top navigation bar */
-  --footer-bg: #111111;          /* Dark black footer background */
-  --footer-border: #222222;      /* Footer subtle borders */
-
   /* Fonts */
   --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   
@@ -52,7 +47,8 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-img {
+img,
+.img-responsive {
   max-width: 100%;
   height: auto;
   display: block;
@@ -65,168 +61,7 @@ a {
 }
 
 /* --------------------------------------------------------------------------
-   3. HEADER STYLES (Black Top Navigation & Overlapping Logo)
-   -------------------------------------------------------------------------- */
-.site-header {
-  background-color: var(--header-bg);
-  color: var(--text-light);
-  position: relative;
-  z-index: 1000;
-  width: 100%;
-  height: 60px;
-}
-
-.header-container {
-  max-width: var(--container-max-width);
-  margin: 0 auto;
-  padding: 0 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 100%;
-  position: relative;
-}
-
-/* Overlapping Logo Box */
-.header-logo-wrap {
-  position: absolute;
-  left: 20px;
-  top: 0;
-  background-color: #000000;
-  padding: 15px 20px 20px 20px;
-  z-index: 1001;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-.header-logo-wrap img {
-  height: 60px;
-  width: auto;
-  display: block;
-}
-
-/* Header Navigation Links */
-.header-nav {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-  margin-left: auto;
-}
-
-.header-nav a {
-  color: #ffffff;
-  font-size: 0.9rem;
-  font-weight: 400;
-  letter-spacing: 0.5px;
-  text-transform: capitalize;
-  padding: 18px 0;
-}
-
-.header-nav a:hover,
-.header-nav a.active {
-  opacity: 0.8;
-  border-bottom: 2px solid #ffffff;
-}
-
-/* Mobile Nav Toggle */
-.nav-toggle {
-  display: none;
-  background: none;
-  border: none;
-  color: #ffffff;
-  font-size: 1.5rem;
-  cursor: pointer;
-}
-
-/* --------------------------------------------------------------------------
-   4. FOOTER STYLES (Black Footer Theme)
-   -------------------------------------------------------------------------- */
-.site-footer {
-  background-color: var(--footer-bg);
-  color: #cccccc;
-  font-size: 0.85rem;
-  line-height: 1.6;
-  padding-top: 50px;
-  border-top: 1px solid var(--footer-border);
-}
-
-.footer-top-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 40px;
-  padding-bottom: 40px;
-}
-
-.footer-col h4 {
-  color: #ffffff;
-  font-size: 0.95rem;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-}
-
-.footer-col ul {
-  list-style: none;
-}
-
-.footer-col ul li {
-  margin-bottom: 10px;
-}
-
-.footer-col ul li a {
-  color: #aaaaaa;
-  text-decoration: underline;
-}
-
-.footer-col ul li a:hover {
-  color: #ffffff;
-}
-
-.footer-social-icons {
-  display: flex;
-  gap: 15px;
-  margin: 20px 0;
-}
-
-.footer-social-icons a {
-  color: #ffffff;
-  font-size: 1.1rem;
-}
-
-.footer-contact-info p {
-  margin-bottom: 8px;
-  color: #bbbbbb;
-}
-
-.footer-brand-divider {
-  border-top: 1px solid var(--footer-border);
-  padding: 30px 0;
-  text-align: center;
-}
-
-.footer-brand-logo {
-  max-width: 140px;
-  margin: 0 auto 10px;
-}
-
-.footer-bottom-grid {
-  border-top: 1px solid var(--footer-border);
-  padding: 40px 0;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 30px;
-}
-
-.footer-copyright {
-  border-top: 1px solid var(--footer-border);
-  padding: 20px 0;
-  text-align: center;
-  font-size: 0.75rem;
-  color: #777777;
-}
-
-/* --------------------------------------------------------------------------
-   5. LAYOUT CONTAINERS & GRID SYSTEM
+   3. LAYOUT CONTAINERS & UTILITY CLASSES
    -------------------------------------------------------------------------- */
 .container {
   width: 100%;
@@ -240,10 +75,446 @@ a {
 }
 
 .text-center { text-align: center; }
+.text-left { text-align: left; }
 .text-teal { color: var(--primary-teal); }
 .font-bold { font-weight: bold; }
 .mt-large { margin-top: 30px; }
 .max-w-700 { max-width: 700px; margin-left: auto; margin-right: auto; }
 
-/* Flex Utility */
+/* Flex & Grid Utilities */
 .flex-2-col {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid-3-col {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+.grid-2x2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+/* --------------------------------------------------------------------------
+   4. TYPOGRAPHY & COMMON ELEMENTS
+   -------------------------------------------------------------------------- */
+h1.page-title,
+h2.section-title {
+  font-size: 2.2rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+  line-height: 1.25;
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.short-accent-line,
+.short-line {
+  width: 40px;
+  height: 2px;
+  background-color: var(--primary-teal);
+  margin: 10px auto 25px;
+}
+
+.divider-line {
+  border: 0;
+  height: 1px;
+  background: var(--border-light);
+  margin: 15px 0 35px;
+}
+
+/* Buttons */
+.btn-outline {
+  display: inline-block;
+  padding: 10px 24px;
+  border: 1px solid var(--primary-teal);
+  color: var(--primary-teal);
+  border-radius: 20px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background-color: var(--primary-teal);
+  color: #ffffff;
+}
+
+.btn-green,
+.btn-green-solid {
+  display: inline-block;
+  padding: 10px 22px;
+  background-color: var(--primary-green);
+  color: #ffffff;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.btn-green:hover,
+.btn-green-solid:hover {
+  opacity: 0.9;
+}
+
+/* --------------------------------------------------------------------------
+   5. HOME PAGE STYLES (index.html)
+   -------------------------------------------------------------------------- */
+.section-home1 {
+  padding: 50px 0;
+}
+
+.home1-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+}
+
+.hero-title {
+  font-size: 2.8rem;
+  color: var(--primary-teal);
+  line-height: 1.15;
+  margin-bottom: 15px;
+}
+
+.hero-subtitle {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  margin-bottom: 25px;
+}
+
+.section-home2 {
+  padding: var(--section-padding);
+}
+
+.subject-card {
+  background-color: #ffffff;
+  padding: 20px;
+  text-align: left;
+}
+
+.subject-title {
+  color: var(--text-dark);
+  margin: 15px 0 10px;
+}
+
+.subject-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* Package Card */
+.package-card {
+  background-color: var(--light-mint);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.package-content {
+  padding: 30px 25px;
+}
+
+.package-title {
+  color: var(--primary-teal);
+  margin-bottom: 12px;
+}
+
+.package-desc {
+  font-size: 0.9rem;
+  color: var(--text-dark);
+  margin-bottom: 20px;
+}
+
+/* Flatlay Background Cards (Section 7, About Contact, Apprentice) */
+.section-home7,
+.section-about3,
+.section-apprentice {
+  padding: 80px 20px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.articles-card,
+.contact-card-white,
+.apprentice-card-white {
+  background-color: rgba(255, 255, 255, 0.96);
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 40px 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 2px;
+  text-align: center;
+}
+
+.contact-card-white {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 800px;
+  width: 100%;
+}
+
+.contact-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.contact-value {
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  word-break: break-all;
+}
+
+/* Featured News Dual Cards (Section 8) */
+.section-home8 {
+  padding: var(--section-padding);
+}
+
+.flex-news {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.news-card {
+  padding: 35px;
+  flex: 1;
+}
+
+.news-card-green {
+  background-color: var(--primary-green);
+  color: #ffffff;
+}
+
+.news-card-blue {
+  background-color: var(--dark-navy);
+  color: #ffffff;
+}
+
+.news-title {
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin: 20px 0 15px;
+}
+
+.news-title-light {
+  font-size: 1.3rem;
+  color: #ffffff;
+  margin-bottom: 15px;
+}
+
+.news-desc,
+.news-desc-light {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  opacity: 0.9;
+  margin-bottom: 15px;
+}
+
+.news-link,
+.news-link-light {
+  display: inline-block;
+  color: #ffffff;
+  text-decoration: underline;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+/* Section 9: Diamond Grid & Brochure */
+.section-home9 {
+  padding: var(--section-padding);
+  background-color: #fcfcfc;
+}
+
+.flex-home9 {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+}
+
+.diamonds-wrapper {
+  max-width: 400px;
+  margin: 0 auto 20px;
+}
+
+.brochure-card {
+  background-color: var(--primary-green);
+  color: #ffffff;
+  padding: 40px 30px;
+  text-align: center;
+  border-radius: 2px;
+  width: 100%;
+}
+
+.brochure-title { font-size: 1.2rem; font-weight: 400; opacity: 0.9; margin-bottom: 10px; }
+.brochure-heading { font-size: 1.6rem; margin-bottom: 10px; }
+.brochure-sub { font-size: 0.9rem; opacity: 0.85; margin-bottom: 25px; }
+
+.pdf-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 25px;
+  font-size: 1rem;
+}
+
+.btn-download {
+  display: inline-block;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  padding: 8px 20px;
+  border-radius: 3px;
+  font-size: 0.9rem;
+}
+
+/* --------------------------------------------------------------------------
+   6. ABOUT US & TEAM LEADERS STYLES (about.html & meetthetutors.html)
+   -------------------------------------------------------------------------- */
+.section-about1,
+.section-about2,
+.section-tutors-grid {
+  padding: var(--section-padding);
+}
+
+.team-card,
+.tutor-card {
+  background-color: var(--light-mint);
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.member-photo-wrap,
+.tutor-photo-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.gray-portrait {
+  filter: grayscale(100%);
+  width: 100%;
+  object-fit: cover;
+}
+
+.badge-on-leave {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  background-color: rgba(255, 255, 255, 0.85);
+  color: #333;
+  padding: 4px 12px;
+  font-size: 0.9rem;
+  border-radius: 3px;
+  font-style: italic;
+}
+
+.card-body-green,
+.tutor-card-body {
+  padding: 25px 20px;
+}
+
+.member-name,
+.tutor-name {
+  font-size: 1.2rem;
+  margin-bottom: 4px;
+  color: var(--text-dark);
+}
+
+.member-role,
+.tutor-subject {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.member-bio,
+.tutor-bio {
+  font-size: 0.88rem;
+  color: #444444;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.tutor-note {
+  font-size: 0.82rem;
+  color: #555555;
+  font-style: italic;
+  margin-bottom: 15px;
+}
+
+.btn-credentials {
+  display: inline-block;
+  background-color: #0b5345;
+  color: #ffffff;
+  padding: 6px 14px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border-radius: 2px;
+  margin-bottom: 12px;
+}
+
+.tutor-schedule {
+  font-size: 0.82rem;
+  color: var(--text-dark);
+  line-height: 1.4;
+}
+
+/* --------------------------------------------------------------------------
+   7. MEDIA QUERIES (DESKTOP & TABLET RESPONSIVENESS)
+   -------------------------------------------------------------------------- */
+
+/* Tablet & Up (768px +) */
+@media (min-width: 768px) {
+  .grid-3-col {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .grid-2x2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .flex-2-col {
+    flex-direction: row;
+  }
+
+  .home1-container {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .home1-left,
+  .home1-right
