@@ -39,6 +39,7 @@
   .footer-col p {
     color: #bbbbbb;
     margin: 0 0 10px 0;
+    word-wrap: break-word;
   }
 
   .footer-col ul {
@@ -95,10 +96,11 @@
     color: #777777;
     font-size: 0.75rem;
     display: block;
+    line-height: 1.4;
   }
 
-  /* Responsive Stacking for Mobile Screens */
-  @media (max-width: 768px) {
+  /* Mobile Responsive Adaptations */
+  @media (max-width: 900px) {
     .footer-top-grid,
     .footer-bottom-grid {
       grid-template-columns: 1fr;
@@ -106,7 +108,11 @@
     }
 
     footer.site-footer {
-      padding: 35px 15px 15px 15px;
+      padding: 35px 20px 20px 20px;
+    }
+
+    .footer-col h4 {
+      margin-bottom: 12px;
     }
   }
 </style>
