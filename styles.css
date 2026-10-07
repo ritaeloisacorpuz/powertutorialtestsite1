@@ -1,7 +1,6 @@
 /* ==========================================================================
    POWER TUTORIAL - GLOBAL STYLESHEET (styles.css)
    ========================================================================== */
-
 /* --------------------------------------------------------------------------
    1. CSS VARIABLES & COLOR PALETTE
    -------------------------------------------------------------------------- */
@@ -16,7 +15,6 @@
   --text-light: #ffffff;         /* White text */
   --bg-light-gray: #f8f9fa;      /* Page background neutral */
   --border-light: #e0e0e0;       /* Divider line color */
-
   /* Fonts */
   --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   
@@ -24,7 +22,6 @@
   --container-max-width: 1140px;
   --section-padding: 60px 20px;
 }
-
 /* --------------------------------------------------------------------------
    2. GLOBAL RESETS & BASE STYLES
    -------------------------------------------------------------------------- */
@@ -33,12 +30,10 @@
   margin: 0;
   padding: 0;
 }
-
 html {
   scroll-behavior: smooth;
   font-size: 16px;
 }
-
 body {
   font-family: var(--font-family-base);
   color: var(--text-dark);
@@ -46,20 +41,17 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
-
 img,
 .img-responsive {
   max-width: 100%;
   height: auto;
   display: block;
 }
-
 a {
   text-decoration: none;
   color: inherit;
   transition: all 0.25s ease-in-out;
 }
-
 /* --------------------------------------------------------------------------
    3. LAYOUT CONTAINERS & UTILITY CLASSES
    -------------------------------------------------------------------------- */
@@ -69,18 +61,15 @@ a {
   margin: 0 auto;
   padding: 0 20px;
 }
-
 .main-content {
   width: 100%;
 }
-
 .text-center { text-align: center; }
 .text-left { text-align: left; }
 .text-teal { color: var(--primary-teal); }
 .font-bold { font-weight: bold; }
 .mt-large { margin-top: 30px; }
 .max-w-700 { max-width: 700px; margin-left: auto; margin-right: auto; }
-
 /* Flex & Grid Utilities */
 .flex-2-col {
   display: flex;
@@ -88,25 +77,21 @@ a {
   gap: 40px;
   align-items: center;
 }
-
 .flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
 .grid-3-col {
   display: grid;
   grid-template-columns: 1fr;
   gap: 30px;
 }
-
 .grid-2x2 {
   display: grid;
   grid-template-columns: 1fr;
   gap: 30px;
 }
-
 /* --------------------------------------------------------------------------
    4. TYPOGRAPHY & COMMON ELEMENTS
    -------------------------------------------------------------------------- */
@@ -117,12 +102,10 @@ h2.section-title {
   margin-bottom: 10px;
   line-height: 1.25;
 }
-
 h3 {
   font-size: 1.25rem;
   font-weight: 600;
 }
-
 .short-accent-line,
 .short-line {
   width: 40px;
@@ -130,14 +113,12 @@ h3 {
   background-color: var(--primary-teal);
   margin: 10px auto 25px;
 }
-
 .divider-line {
   border: 0;
   height: 1px;
   background: var(--border-light);
   margin: 15px 0 35px;
 }
-
 /* Buttons */
 .btn-outline {
   display: inline-block;
@@ -149,12 +130,10 @@ h3 {
   font-weight: 500;
   background: transparent;
 }
-
 .btn-outline:hover {
   background-color: var(--primary-teal);
   color: #ffffff;
 }
-
 .btn-green,
 .btn-green-solid {
   display: inline-block;
@@ -166,60 +145,50 @@ h3 {
   font-weight: 500;
   text-align: center;
 }
-
 .btn-green:hover,
 .btn-green-solid:hover {
   opacity: 0.9;
 }
-
 /* --------------------------------------------------------------------------
    5. HOME PAGE STYLES (index.html)
    -------------------------------------------------------------------------- */
 .section-home1 {
   padding: 50px 0;
 }
-
 .home1-container {
   display: flex;
   flex-direction: column;
   gap: 30px;
   align-items: center;
 }
-
 .hero-title {
   font-size: 2.8rem;
   color: var(--primary-teal);
   line-height: 1.15;
   margin-bottom: 15px;
 }
-
 .hero-subtitle {
   font-size: 1.15rem;
   color: var(--text-muted);
   margin-bottom: 25px;
 }
-
 .section-home2 {
   padding: var(--section-padding);
 }
-
 .subject-card {
   background-color: #ffffff;
   padding: 20px;
   text-align: left;
 }
-
 .subject-title {
   color: var(--text-dark);
   margin: 15px 0 10px;
 }
-
 .subject-desc {
   font-size: 0.9rem;
   color: var(--text-muted);
   line-height: 1.5;
 }
-
 /* Package Card */
 .package-card {
   background-color: var(--light-mint);
@@ -229,22 +198,18 @@ h3 {
   border-radius: 4px;
   text-align: center;
 }
-
 .package-content {
   padding: 30px 25px;
 }
-
 .package-title {
   color: var(--primary-teal);
   margin-bottom: 12px;
 }
-
 .package-desc {
   font-size: 0.9rem;
   color: var(--text-dark);
   margin-bottom: 20px;
 }
-
 /* Flatlay Background Cards (Section 7, About Contact, Apprentice) */
 .section-home7,
 .section-about3,
@@ -255,7 +220,6 @@ h3 {
   background-repeat: no-repeat;
   position: relative;
 }
-
 .articles-card,
 .contact-card-white,
 .apprentice-card-white {
@@ -267,7 +231,6 @@ h3 {
   border-radius: 2px;
   text-align: center;
 }
-
 .contact-card-white {
   display: flex;
   flex-direction: column;
@@ -275,63 +238,52 @@ h3 {
   max-width: 800px;
   width: 100%;
 }
-
 .contact-col {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
 .contact-label {
   font-size: 0.85rem;
   color: var(--text-muted);
   margin-bottom: 4px;
 }
-
 .contact-value {
   font-size: 0.95rem;
   color: var(--text-dark);
   word-break: break-all;
 }
-
 /* Featured News Dual Cards (Section 8) */
 .section-home8 {
   padding: var(--section-padding);
 }
-
 .flex-news {
   display: flex;
   flex-direction: column;
   gap: 0;
 }
-
 .news-card {
   padding: 35px;
   flex: 1;
 }
-
 .news-card-green {
   background-color: var(--primary-green);
   color: #ffffff;
 }
-
 .news-card-blue {
   background-color: var(--dark-navy);
   color: #ffffff;
 }
-
 .news-title {
   font-size: 1.5rem;
   color: #ffffff;
   margin: 20px 0 15px;
 }
-
 .news-title-light {
   font-size: 1.3rem;
   color: #ffffff;
   margin-bottom: 15px;
 }
-
 .news-desc,
 .news-desc-light {
   font-size: 0.9rem;
@@ -339,7 +291,6 @@ h3 {
   opacity: 0.9;
   margin-bottom: 15px;
 }
-
 .news-link,
 .news-link-light {
   display: inline-block;
@@ -348,25 +299,21 @@ h3 {
   font-size: 0.9rem;
   margin-top: 10px;
 }
-
 /* Section 9: Diamond Grid & Brochure */
 .section-home9 {
   padding: var(--section-padding);
   background-color: #fcfcfc;
 }
-
 .flex-home9 {
   display: flex;
   flex-direction: column;
   gap: 40px;
   align-items: center;
 }
-
 .diamonds-wrapper {
   max-width: 400px;
   margin: 0 auto 20px;
 }
-
 .brochure-card {
   background-color: var(--primary-green);
   color: #ffffff;
@@ -375,11 +322,9 @@ h3 {
   border-radius: 2px;
   width: 100%;
 }
-
 .brochure-title { font-size: 1.2rem; font-weight: 400; opacity: 0.9; margin-bottom: 10px; }
 .brochure-heading { font-size: 1.6rem; margin-bottom: 10px; }
 .brochure-sub { font-size: 0.9rem; opacity: 0.85; margin-bottom: 25px; }
-
 .pdf-icon-wrap {
   display: flex;
   align-items: center;
@@ -388,7 +333,6 @@ h3 {
   margin-bottom: 25px;
   font-size: 1rem;
 }
-
 .btn-download {
   display: inline-block;
   border: 1px solid #ffffff;
@@ -397,7 +341,6 @@ h3 {
   border-radius: 3px;
   font-size: 0.9rem;
 }
-
 /* --------------------------------------------------------------------------
    6. ABOUT US & TEAM LEADERS STYLES (about.html & meetthetutors.html)
    -------------------------------------------------------------------------- */
@@ -406,7 +349,6 @@ h3 {
 .section-tutors-grid {
   padding: var(--section-padding);
 }
-
 .team-card,
 .tutor-card {
   background-color: var(--light-mint);
@@ -416,19 +358,16 @@ h3 {
   flex-direction: column;
   text-align: left;
 }
-
 .member-photo-wrap,
 .tutor-photo-wrap {
   position: relative;
   width: 100%;
 }
-
 .gray-portrait {
   filter: grayscale(100%);
   width: 100%;
   object-fit: cover;
 }
-
 .badge-on-leave {
   position: absolute;
   bottom: 15px;
@@ -440,26 +379,22 @@ h3 {
   border-radius: 3px;
   font-style: italic;
 }
-
 .card-body-green,
 .tutor-card-body {
   padding: 25px 20px;
 }
-
 .member-name,
 .tutor-name {
   font-size: 1.2rem;
   margin-bottom: 4px;
   color: var(--text-dark);
 }
-
 .member-role,
 .tutor-subject {
   font-size: 0.9rem;
   font-weight: 600;
   margin-bottom: 12px;
 }
-
 .member-bio,
 .tutor-bio {
   font-size: 0.88rem;
@@ -467,54 +402,15 @@ h3 {
   line-height: 1.5;
   margin-bottom: 12px;
 }
-
 .tutor-note {
   font-size: 0.82rem;
   color: #555555;
   font-style: italic;
   margin-bottom: 15px;
 }
-
 .btn-credentials {
   display: inline-block;
   background-color: #0b5345;
   color: #ffffff;
   padding: 6px 14px;
   font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  border-radius: 2px;
-  margin-bottom: 12px;
-}
-
-.tutor-schedule {
-  font-size: 0.82rem;
-  color: var(--text-dark);
-  line-height: 1.4;
-}
-
-/* --------------------------------------------------------------------------
-   7. MEDIA QUERIES (DESKTOP & TABLET RESPONSIVENESS)
-   -------------------------------------------------------------------------- */
-
-/* Tablet & Up (768px +) */
-@media (min-width: 768px) {
-  .grid-3-col {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .grid-2x2 {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .flex-2-col {
-    flex-direction: row;
-  }
-
-  .home1-container {
-    flex-direction: row;
-    align-items: center;
-  }
-
-  .home1-left,
-  .home1-right
