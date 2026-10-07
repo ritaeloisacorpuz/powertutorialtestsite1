@@ -1,0 +1,582 @@
+/* ==========================================================================
+   POWER TUTORIAL - GLOBAL STYLESHEET (styles.css)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. CSS VARIABLES & COLOR PALETTE
+   -------------------------------------------------------------------------- */
+:root {
+  /* Brand Colors */
+  --primary-teal: #1b7a63;       /* Main teal/green headings */
+  --primary-green: #007a52;      /* Deep green buttons & badges */
+  --light-mint: #e8f4f0;         /* Soft mint card background */
+  --dark-navy: #2d3b55;          /* News dark card background */
+  --text-dark: #333333;          /* Main body text color */
+  --text-muted: #666666;         /* Subtitles & minor text */
+  --text-light: #ffffff;         /* White text */
+  --bg-light-gray: #f8f9fa;      /* Page background neutral */
+  --border-light: #e0e0e0;       /* Divider line color */
+
+  /* Fonts */
+  --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  
+  /* Layout Spacing */
+  --container-max-width: 1140px;
+  --section-padding: 60px 20px;
+}
+
+/* --------------------------------------------------------------------------
+   2. GLOBAL RESETS & BASE STYLES
+   -------------------------------------------------------------------------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-family-base);
+  color: var(--text-dark);
+  background-color: #ffffff;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.25s ease-in-out;
+}
+
+/* --------------------------------------------------------------------------
+   3. LAYOUT CONTAINERS & GRID SYSTEM
+   -------------------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.main-content {
+  width: 100%;
+}
+
+.text-center { text-align: center; }
+.text-teal { color: var(--primary-teal); }
+.font-bold { font-weight: bold; }
+.mt-large { margin-top: 30px; }
+.max-w-700 { max-width: 700px; margin-left: auto; margin-right: auto; }
+
+/* Flex Utility */
+.flex-2-col {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Responsive Grids */
+.grid-3-col {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+.grid-2x2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+/* --------------------------------------------------------------------------
+   4. TYPOGRAPHY & COMMON ELEMENTS
+   -------------------------------------------------------------------------- */
+h1.page-title,
+h2.section-title {
+  font-size: 2.2rem;
+  font-weight: 500;
+  margin-bottom: 15px;
+  line-height: 1.25;
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.short-accent-line,
+.short-line {
+  width: 40px;
+  height: 2px;
+  background-color: var(--primary-teal);
+  margin: 10px auto 20px;
+}
+
+.divider-line {
+  border: 0;
+  height: 1px;
+  background: var(--border-light);
+  margin: 15px 0 35px;
+}
+
+/* Button Styles */
+.btn-outline {
+  display: inline-block;
+  padding: 10px 24px;
+  border: 1px solid var(--primary-teal);
+  color: var(--primary-teal);
+  border-radius: 20px;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.btn-outline:hover {
+  background-color: var(--primary-teal);
+  color: #ffffff;
+}
+
+.btn-green,
+.btn-green-solid {
+  display: inline-block;
+  padding: 10px 22px;
+  background-color: var(--primary-green);
+  color: #ffffff;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.btn-green:hover,
+.btn-green-solid:hover {
+  opacity: 0.9;
+}
+
+/* --------------------------------------------------------------------------
+   5. SECTION 1: HERO / HOME SECTION
+   -------------------------------------------------------------------------- */
+.section-home1 {
+  padding: 40px 0;
+}
+
+.home1-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.hero-title {
+  font-size: 2.8rem;
+  color: var(--primary-teal);
+  line-height: 1.15;
+  margin-bottom: 15px;
+}
+
+.hero-subtitle {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  margin-bottom: 25px;
+}
+
+/* --------------------------------------------------------------------------
+   6. SECTION 2 & ABOUT PAGE: CARDS & TUTORS
+   -------------------------------------------------------------------------- */
+.section-home2,
+.section-about1,
+.section-about2,
+.section-tutors-grid {
+  padding: var(--section-padding);
+}
+
+.subject-card {
+  background-color: #ffffff;
+  padding: 20px;
+  text-align: left;
+}
+
+.subject-title {
+  color: var(--text-dark);
+  margin: 15px 0 10px;
+}
+
+.subject-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* Package Card (Home 3) */
+.package-card {
+  background-color: var(--light-mint);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.package-content {
+  padding: 25px;
+}
+
+.package-title {
+  color: var(--primary-teal);
+  margin-bottom: 10px;
+}
+
+.package-desc {
+  font-size: 0.9rem;
+  color: var(--text-dark);
+  margin-bottom: 20px;
+}
+
+/* Team & Tutor Cards */
+.team-card,
+.tutor-card {
+  background-color: var(--light-mint);
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.member-photo-wrap,
+.tutor-photo-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.gray-portrait {
+  filter: grayscale(100%);
+  width: 100%;
+  object-fit: cover;
+}
+
+.badge-on-leave {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  background-color: rgba(255, 255, 255, 0.85);
+  color: #333;
+  padding: 4px 12px;
+  font-size: 0.9rem;
+  border-radius: 3px;
+  font-style: italic;
+}
+
+.card-body-green,
+.tutor-card-body {
+  padding: 20px;
+}
+
+.member-name,
+.tutor-name {
+  font-size: 1.2rem;
+  margin-bottom: 4px;
+}
+
+.member-role,
+.tutor-subject {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.member-bio,
+.tutor-bio {
+  font-size: 0.88rem;
+  color: #444444;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.tutor-note {
+  font-size: 0.82rem;
+  color: #555555;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.btn-credentials {
+  display: inline-block;
+  background-color: #0b5345;
+  color: #ffffff;
+  padding: 6px 14px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border-radius: 2px;
+  margin-bottom: 12px;
+}
+
+.tutor-schedule {
+  font-size: 0.82rem;
+  color: var(--text-dark);
+  line-height: 1.4;
+}
+
+/* --------------------------------------------------------------------------
+   7. FLATLAY BACKGROUND SECTIONS (Home 7, About 3, Meet Tutors 5)
+   -------------------------------------------------------------------------- */
+.section-home7,
+.section-about3,
+.section-apprentice {
+  padding: 80px 20px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.articles-card,
+.contact-card-white,
+.apprentice-card-white {
+  background-color: rgba(255, 255, 255, 0.96);
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 40px 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 2px;
+  text-align: center;
+}
+
+.contact-card-white {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 800px;
+  width: 100%;
+}
+
+.contact-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.contact-value {
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  word-break: break-all;
+}
+
+.btn-apprentice-directory {
+  display: inline-block;
+  background-color: var(--primary-green);
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 3px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.apprentice-text {
+  font-size: 0.88rem;
+  text-align: left;
+  line-height: 1.6;
+  color: #444444;
+  margin-bottom: 15px;
+}
+
+/* --------------------------------------------------------------------------
+   8. SECTION 8: FEATURED NEWS DUAL CARDS
+   -------------------------------------------------------------------------- */
+.section-home8 {
+  padding: var(--section-padding);
+}
+
+.flex-news {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.news-card {
+  padding: 35px;
+  flex: 1;
+}
+
+.news-card-green {
+  background-color: var(--primary-green);
+  color: #ffffff;
+}
+
+.news-card-blue {
+  background-color: var(--dark-navy);
+  color: #ffffff;
+}
+
+.news-title {
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin: 20px 0 15px;
+}
+
+.news-title-light {
+  font-size: 1.3rem;
+  color: #ffffff;
+  margin-bottom: 15px;
+}
+
+.news-desc,
+.news-desc-light {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  opacity: 0.9;
+  margin-bottom: 15px;
+}
+
+.news-link,
+.news-link-light {
+  display: inline-block;
+  color: #ffffff;
+  text-decoration: underline;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+/* --------------------------------------------------------------------------
+   9. SECTION 9: DIAMOND GRID & BROCHURE SECTION
+   -------------------------------------------------------------------------- */
+.section-home9 {
+  padding: var(--section-padding);
+  background-color: #fcfcfc;
+}
+
+.flex-home9 {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+}
+
+.diamonds-wrapper {
+  max-width: 400px;
+  margin: 0 auto 20px;
+}
+
+.brochure-card {
+  background-color: var(--primary-green);
+  color: #ffffff;
+  padding: 40px 30px;
+  text-align: center;
+  border-radius: 2px;
+  width: 100%;
+}
+
+.brochure-title { font-size: 1.2rem; font-weight: 400; opacity: 0.9; margin-bottom: 10px; }
+.brochure-heading { font-size: 1.6rem; margin-bottom: 10px; }
+.brochure-sub { font-size: 0.9rem; opacity: 0.85; margin-bottom: 25px; }
+
+.pdf-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 25px;
+  font-size: 1rem;
+}
+
+.btn-download {
+  display: inline-block;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  padding: 8px 20px;
+  border-radius: 3px;
+  font-size: 0.9rem;
+}
+
+/* --------------------------------------------------------------------------
+   10. MEDIA QUERIES (DESKTOP & TABLET RESPONSIVENESS)
+   -------------------------------------------------------------------------- */
+
+/* Tablet & Up (768px +) */
+@media (min-width: 768px) {
+  .grid-3-col {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .grid-2x2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .flex-2-col {
+    flex-direction: row;
+  }
+
+  .home1-container {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .home1-left,
+  .home1-right {
+    flex: 1;
+  }
+
+  .contact-card-white {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .flex-news {
+    flex-direction: row;
+  }
+
+  .flex-home9 {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .home9-left,
+  .home9-right {
+    flex: 1;
+  }
+}
+
+/* Mobile Adjustments (Under 767px) */
+@media (max-width: 767px) {
+  :root {
+    --section-padding: 35px 15px;
+  }
+
+  h1.page-title,
+  h2.section-title {
+    font-size: 1.75rem;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .articles-card,
+  .contact-card-white,
+  .apprentice-card-white {
+    padding: 25px 15px;
+  }
+}
