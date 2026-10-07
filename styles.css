@@ -414,3 +414,139 @@ h3 {
   color: #ffffff;
   padding: 6px 14px;
   font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border-radius: 2px;
+  margin-bottom: 12px;
+}
+.tutor-schedule {
+  font-size: 0.82rem;
+  color: var(--text-dark);
+  line-height: 1.4;
+}
+/* --------------------------------------------------------------------------
+   7. MEDIA QUERIES (DESKTOP & TABLET RESPONSIVENESS)
+   -------------------------------------------------------------------------- */
+/* Tablet & Up (768px +) */
+@media (min-width: 768px) {
+  .grid-3-col {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .grid-2x2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .flex-2-col {
+    flex-direction: row;
+  }
+  .home1-container {
+    flex-direction: row;
+    align-items: center;
+  }
+  .home1-left,
+  .home1-right {
+    flex: 1;
+  }
+  .contact-card-white {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .flex-news {
+    flex-direction: row;
+  }
+  .flex-home9 {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .home9-left,
+  .home9-right {
+    flex: 1;
+  }
+}
+/* Mobile Adjustments (Under 767px) */
+@media (max-width: 767px) {
+  :root {
+    --section-padding: 35px 15px;
+  }
+  h1.page-title,
+  h2.section-title {
+    font-size: 1.75rem;
+  }
+  .hero-title {
+    font-size: 2rem;
+  }
+  .articles-card,
+  .contact-card-white,
+  .apprentice-card-white {
+    padding: 25px 15px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   8. BOOKING FORM STYLES (booking.html)
+   -------------------------------------------------------------------------- */
+.booking-form-wrapper {
+  background-color: #ffffff;
+  padding: 10px 0;
+}
+
+.form-group {
+  margin-bottom: 22px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 15px;
+  background-color: #e2ece9; /* Soft greenish light gray matching target design */
+  border: 1px solid transparent;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  color: #333333;
+  box-sizing: border-box;
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.form-input:focus {
+  outline: none;
+  background-color: #ffffff;
+  border-color: var(--primary-teal);
+}
+
+.schedule-block {
+  margin-bottom: 15px;
+}
+
+.schedule-label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 5px;
+}
+
+.schedule-inputs-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 12px;
+}
+
+.payment-terms-box {
+  background-color: #ffffff;
+  padding: 20px 0;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: #444444;
+}
+
+/* Mobile responsive layout for schedule fields */
+@media (max-width: 600px) {
+  .schedule-inputs-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
