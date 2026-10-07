@@ -1,251 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blue Pages - Worker Profiles</title>
-  
-  <!-- 1. Link the external stylesheet -->
-  <link rel="stylesheet" href="style.css">
-  
-  <!-- PapaParse Library to fetch and parse the CSV file -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
-  
-  <style>
-    :root {
-      --blue-primary: #1e3a8a;
-      --blue-secondary: #2563eb;
-      --blue-light: #f0f7ff;
-      --blue-border: #bfdbfe;
-      --text-dark: #1f2937;
-    }
-
-    .directory-section {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 40px 20px;
-      box-sizing: border-box;
-    }
-
-    .directory-header {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    .directory-header h1 {
-      color: var(--blue-primary);
-      font-size: 2.2rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-
-    .directory-header p {
-      color: #4b5563;
-      font-size: 1.1rem;
-    }
-
-    /* Responsive Grid Layout */
-    .cleaners-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 30px;
-    }
-
-    .cleaner-card {
-      border: 1px solid var(--blue-border);
-      border-radius: 8px;
-      overflow: hidden;
-      background-color: #ffffff;
-      box-shadow: 0 4px 10px rgba(30, 58, 138, 0.08);
-      text-align: left;
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .cleaner-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 18px rgba(30, 58, 138, 0.15);
-    }
-
-    .cleaner-photo {
-      width: 100%;
-      height: 250px;
-      object-fit: cover;
-      background-color: var(--blue-light);
-    }
-
-    .cleaner-info {
-      padding: 20px;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .cleaner-name {
-      font-size: 1.3rem;
-      color: var(--blue-primary);
-      margin-bottom: 10px;
-      font-weight: 700;
-      border-bottom: 2px solid var(--blue-light);
-      padding-bottom: 6px;
-    }
-
-    .cleaner-meta {
-      font-size: 0.9rem;
-      color: #4b5563;
-      margin-bottom: 15px;
-      background-color: var(--blue-light);
-      padding: 10px 12px;
-      border-radius: 6px;
-    }
-
-    .cleaner-meta p {
-      margin-bottom: 6px;
-    }
-
-    .cleaner-meta p:last-child {
-      margin-bottom: 0;
-    }
-
-    .cleaner-meta strong {
-      color: var(--blue-secondary);
-    }
-
-    .cleaner-narrative {
-      font-size: 0.95rem;
-      line-height: 1.5;
-      color: var(--text-dark);
-      margin-top: auto;
-      white-space: pre-line;
-    }
-
-    .loading-msg {
-      font-size: 1.1rem;
-      color: var(--blue-secondary);
-      text-align: center;
-      margin: 50px 0;
-      font-weight: 600;
-    }
-
-    .btn-request {
-      display: block;
-      width: 100%;
-      text-align: center;
-      background-color: var(--blue-secondary);
-      color: #ffffff;
-      padding: 12px 0;
-      text-decoration: none;
-      font-weight: 600;
-      border-radius: 0 0 6px 6px;
-      margin-top: 15px;
-      transition: background-color 0.2s;
-    }
-
-    .btn-request:hover {
-      background-color: var(--blue-primary);
-    }
-
-    /* Mobile & Tablet Responsiveness Enhancements */
-    @media (max-width: 768px) {
-      .directory-section {
-        padding: 20px 15px;
-      }
-
-      .directory-header h1 {
-        font-size: 1.75rem;
-      }
-
-      .directory-header p {
-        font-size: 1rem;
-      }
-
-      .cleaners-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
-
-      .cleaner-photo {
-        height: 220px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Public Directory - Power Tutorial</title>
+    
+    <!-- External Stylesheet Links -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- 2. Header Placeholder at the very top inside <body> -->
-  <div id="header-placeholder"></div>
 
-  <!-- MAIN CLEANERS & BLUE COLLAR WORKERS SECTION -->
-  <section class="directory-section">
-    <div class="directory-header">
-      <h1>Blue Pages Worker Directory</h1>
-      <p>Browse available service profiles updated directly from our latest worker registrations.</p>
-    </div>
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
 
-    <div id="loading" class="loading-msg">Loading profiles from database...</div>
-    <div id="cleaners-container" class="cleaners-grid"></div>
-  </section>
-
-  <!-- 3. Footer Placeholder at the very bottom right before </body> -->
-  <div id="footer-placeholder"></div>
-
-  <!-- 4. Loader script tag directly underneath the footer placeholder -->
-  <script src="include.js"></script>
-
-  <!-- CSV Auto-Parse Script -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      Papa.parse("profile.csv", {
-        download: true,
-        header: true,
-        skipEmptyLines: true,
-        complete: function (results) {
-          const container = document.getElementById("cleaners-container");
-          const loadingMsg = document.getElementById("loading");
-          loadingMsg.style.display = "none";
-
-          if (results.data.length === 0) {
-            container.innerHTML = "<p style='text-align:center; grid-column: 1/-1;'>No profiles found in the database.</p>";
-            return;
-          }
-
-          results.data.forEach(cleaner => {
-            // Pick up Name (Wix 'FirstName' or standard 'Name')
-            const workerName = cleaner.FirstName || cleaner.Name || 'Anonymous Worker';
-            
-            // Pick up Location (Wix 'Preferred Location for facetoface Tutorials' or standard 'Location')
-            const workerLocation = cleaner['Preferred Location for facetoface Tutorials'] || cleaner.Location || 'Not specified';
-
-            // Pick up Photo (Wix 'Profile Picture' or standard 'PhotoURL')
-            let photo = cleaner['Profile Picture'] || cleaner.PhotoURL || 'images/default-avatar.jpg';
-            if (!photo || photo.trim() === "" || photo.startsWith("wix:image://")) {
-              photo = "images/default-avatar.jpg";
-            }
-
-            const cardHTML = `
-              <div class="cleaner-card">
-                <img src="${photo}" alt="${workerName}" class="cleaner-photo" onerror="this.src='images/default-avatar.jpg'">
-                <div class="cleaner-info">
-                  <h3 class="cleaner-name">${workerName}</h3>
-                  <div class="cleaner-meta">
-                    <p><strong>Category:</strong> ${cleaner.Category || 'Blue Collar'}</p>
-                    <p><strong>Location:</strong> ${workerLocation}</p>
-                    <p><strong>Schedule:</strong> ${cleaner.Schedule || 'Flexible'}</p>
-                  </div>
-                  <p class="cleaner-narrative">${cleaner.Narrative || cleaner.Bio || 'No background description provided.'}</p>
+    <main class="main-content">
+        <section class="section-tutors-grid">
+            <div class="container">
+                
+                <!-- Page Title -->
+                <div class="text-center heading-wrapper" style="margin-bottom: 30px;">
+                    <h1 class="page-title text-teal">Public Directory of Apprentice Tutors</h1>
+                    <div class="short-accent-line"></div>
+                    <p style="font-size: 0.95rem; color: var(--text-muted);">
+                        Browse available service profiles updated directly from our latest worker registrations.
+                    </p>
                 </div>
-                <a href="/request.html" class="btn-request">Request Contact Details</a>
-              </div>
-            `;
-            container.innerHTML += cardHTML;
-          });
-        },
-        error: function(err) {
-          document.getElementById("loading").innerText = "Failed to load profiles. Please ensure profile.csv is uploaded in your repository root.";
-          console.error("CSV Parsing Error:", err);
-        }
-      });
-    });
-  </script>
+
+                <!-- 3-Column Directory Grid -->
+                <div class="grid-3-col">
+
+                    <!-- Apprentice Card 1 -->
+                    <div class="tutor-card">
+                        <div class="tutor-photo-wrap">
+                            <img src="images/apprentice-darlene.jpg" alt="Darlene Franchette" class="img-responsive gray-portrait">
+                        </div>
+                        <div class="tutor-card-body">
+                            <h3 class="tutor-name">Darlene Franchette</h3>
+                            <p class="tutor-subject text-teal">Pure and Applied Microbiology</p>
+                            <p class="tutor-bio">
+                                As a practicing pharmaceutical microbiologist, I have integrated core concepts in general chemistry and microbiology into accessible learning techniques...
+                            </p>
+                            <p class="tutor-note"><strong>Location:</strong> Currently residing in Antipolo, Rizal.</p>
+                            <div class="tutor-schedule">
+                                <strong>SCHEDULE:</strong> Mon to Fri @ 7 to 10 PM | Sat @ 9 AM to 4 PM
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Apprentice Card 2 -->
+                    <div class="tutor-card">
+                        <div class="tutor-photo-wrap">
+                            <img src="images/apprentice-akia.jpg" alt="Akia" class="img-responsive gray-portrait">
+                        </div>
+                        <div class="tutor-card-body">
+                            <h3 class="tutor-name">Akia</h3>
+                            <p class="tutor-subject text-teal">Elementary English</p>
+                            <p class="tutor-bio">
+                                A Special Needs Education graduate whose focus is helping children develop foundational reading comprehension and vocabulary...
+                            </p>
+                            <p class="tutor-note"><strong>Location:</strong> Pampanga (Available for online tutorials only).</p>
+                            <div class="tutor-schedule">
+                                <strong>SCHEDULE:</strong> Mon to Thurs @ 1 PM to 4 PM
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Apprentice Card 3 -->
+                    <div class="tutor-card">
+                        <div class="tutor-photo-wrap">
+                            <img src="images/apprentice-roma.jpg" alt="Roma Joy" class="img-responsive gray-portrait">
+                        </div>
+                        <div class="tutor-card-body">
+                            <h3 class="tutor-name">Roma Joy</h3>
+                            <p class="tutor-subject text-teal">Chemistry, Biology & Elementary Science</p>
+                            <p class="tutor-bio">
+                                Specialized in preparing interactive modules for elementary and high school students in natural sciences...
+                            </p>
+                            <p class="tutor-note"><strong>Location:</strong> Not specified.</p>
+                            <div class="tutor-schedule">
+                                <strong>SCHEDULE:</strong> Tue to Sat @ 8 AM to 5 PM
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Loader Script -->
+    <script src="include.js"></script>
 </body>
 </html>
