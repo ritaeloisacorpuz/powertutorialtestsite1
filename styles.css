@@ -1,552 +1,533 @@
-/* ==========================================================================
-   POWER TUTORIAL - GLOBAL STYLESHEET (styles.css)
-   ========================================================================== */
-/* --------------------------------------------------------------------------
-   1. CSS VARIABLES & COLOR PALETTE
-   -------------------------------------------------------------------------- */
+/* Core Styling & Variables */
 :root {
-  /* Brand Colors */
-  --primary-teal: #1b7a63;       /* Main teal/green headings */
-  --primary-green: #007a52;      /* Deep green buttons & badges */
-  --light-mint: #e8f4f0;         /* Soft mint card background */
-  --dark-navy: #2d3b55;          /* News dark card background */
-  --text-dark: #333333;          /* Main body text color */
-  --text-muted: #666666;         /* Subtitles & minor text */
-  --text-light: #ffffff;         /* White text */
-  --bg-light-gray: #f8f9fa;      /* Page background neutral */
-  --border-light: #e0e0e0;       /* Divider line color */
-  /* Fonts */
-  --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  
-  /* Layout Spacing */
-  --container-max-width: 1140px;
-  --section-padding: 60px 20px;
+  --primary-navy: #00329A;
+  --light-blue: #80A8FF;
+  --accent-yellow: #f8ee68;
+  --accent-pink: #f4c2c2;
+  --accent-green: #97d08f;
+  --text-dark: #00329A;
+  --text-light: #ffffff;
+  --font-family: 'Helvetica Neue', Arial, sans-serif;
 }
-/* --------------------------------------------------------------------------
-   2. GLOBAL RESETS & BASE STYLES
-   -------------------------------------------------------------------------- */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-html {
-  scroll-behavior: smooth;
-  font-size: 16px;
-}
 body {
-  font-family: var(--font-family-base);
+  font-family: var(--font-family);
   color: var(--text-dark);
-  background-color: #ffffff;
   line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-}
-img,
-.img-responsive {
-  max-width: 100%;
-  height: auto;
-  display: block;
+  background-color: #ffffff;
 }
 a {
   text-decoration: none;
   color: inherit;
-  transition: all 0.25s ease-in-out;
 }
-/* --------------------------------------------------------------------------
-   3. LAYOUT CONTAINERS & UTILITY CLASSES
-   -------------------------------------------------------------------------- */
-.container {
+img {
+  max-width: 100%;
+  height: auto;
+}
+/* Header Component */
+.site-header {
+  background-color: var(--light-blue);
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.logo-text {
+  font-weight: bold;
+  font-size: 1.4rem;
+  letter-spacing: 2px;
+  color: var(--primary-navy);
+}
+.logo-img {
+  max-height: 55px;
+  width: auto;
+  display: block;
+}
+.main-nav {
+  margin: 0 auto;
+}
+.main-nav ul {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+.main-nav a {
+  font-size: 0.95rem;
+  color: var(--primary-navy);
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+.main-nav a:hover {
+  opacity: 0.7;
+}
+.header-right {
+  font-size: 0.85rem;
+  color: var(--primary-navy);
+  text-align: right;
+}
+/* Hero Section */
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px 8%;
+  background-color: #fafafa;
+}
+.hero-content {
+  max-width: 45%;
+}
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 10px;
+}
+.hero-title {
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--primary-navy);
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+.hero-logo {
+  max-width: 220px;
+  height: auto;
+  display: block;
+}
+.hero-tagline {
+  font-style: italic;
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: #555;
+}
+.btn-group {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+.btn-outline, .btn-solid {
+  padding: 10px 25px;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-block;
+}
+.btn-outline {
+  border: 1px solid var(--primary-navy);
+  color: var(--primary-navy);
+  background: transparent;
+}
+.btn-solid {
+  background-color: var(--primary-navy);
+  color: white;
+  border: none;
+}
+.hero-image-container {
+  max-width: 50%;
+}
+/* Quick Nav Button Row (Contact, Promos, FAQ, Affiliate) */
+.quick-nav-row {
+  display: flex;
   width: 100%;
-  max-width: var(--container-max-width);
+}
+.quick-nav-btn {
+  flex: 1;
+  padding: 20px 10px;
+  text-align: center;
+  font-weight: 600;
+  color: var(--primary-navy);
+  transition: opacity 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.quick-nav-btn:nth-child(1) { background-color: var(--primary-navy); color: #fff; }
+.quick-nav-btn:nth-child(2) { background-color: var(--light-blue); }
+.quick-nav-btn:nth-child(3) { background-color: var(--primary-navy); color: #fff; }
+.quick-nav-btn:nth-child(4) { background-color: var(--light-blue); }
+.quick-nav-btn:nth-child(5) { background-color: var(--primary-navy); color: #fff; }
+.quick-nav-btn:hover {
+  opacity: 0.85;
+}
+.quick-nav-logo {
+  max-height: 35px;
+  width: auto;
+  display: block;
+  margin: 0 auto;
+}
+/* Section Common Styling */
+.section-padding {
+  padding: 80px 10%;
+  text-align: center;
+}
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: var(--primary-navy);
+  font-weight: 300;
+}
+/* Section 2: What We Offer */
+.what-we-offer {
+  background-color: #fcfcfc;
+}
+.offer-content {
+  max-width: 800px;
+  margin: 0 auto 30px auto;
+  text-align: left;
+  line-height: 1.8;
+}
+.btn-yellow {
+  background-color: var(--accent-yellow);
+  color: #000;
+  padding: 12px 30px;
+  font-weight: bold;
+  display: inline-block;
+}
+/* Section 3: Why Choose Us Grid */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 40px;
+  text-align: left;
+}
+.feature-card {
+  padding: 20px;
+}
+.feature-icon {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 20px;
+}
+/* Section 4: Promos & Packages Grid */
+.promos-section {
+  background-color: var(--light-blue);
+}
+.promos-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  margin: 40px 0;
+}
+.promo-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+.promo-card h4 {
+  margin-top: 10px;
+  font-size: 1rem;
+}
+.promo-card p {
+  font-size: 0.85rem;
+  color: #555;
+}
+/* Section 5 & 6: Services Grid Cards */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-top: 40px;
+}
+.service-card {
+  display: flex;
+  height: 250px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.service-text-side {
+  flex: 1;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+.service-image-side {
+  flex: 1;
+  background-size: cover;
+  background-position: center;
+}
+/* Footer Container Styling */
+.site-footer {
+  background-color: var(--primary-navy);
+  color: #ffffff;
+  padding: 60px 8% 30px 8%;
+  font-size: 0.85rem;
+}
+.footer-top-grid, .footer-bottom-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+.footer-col h4 {
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+  font-size: 0.95rem;
+}
+.footer-col ul {
+  list-style: none;
+}
+.footer-col ul li {
+  margin-bottom: 8px;
+}
+.footer-col a {
+  color: #CCDCFF;
+}
+.footer-divider {
+  border: 0;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  margin: 30px 0;
+}
+.footer-brand-center {
+  text-align: center;
+  padding: 20px 0;
+}
+/* ==========================================================================
+   ADDED: Promos & Packages Page Components (.promos.html Specifics)
+   ========================================================================== */
+.container {
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
-.main-content {
-  width: 100%;
-}
-.text-center { text-align: center; }
-.text-left { text-align: left; }
-.text-teal { color: var(--primary-teal); }
-.font-bold { font-weight: bold; }
-.mt-large { margin-top: 30px; }
-.max-w-700 { max-width: 700px; margin-left: auto; margin-right: auto; }
-/* Flex & Grid Utilities */
-.flex-2-col {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  align-items: center;
-}
-.flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.grid-3-col {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 30px;
-}
-.grid-2x2 {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 30px;
-}
-/* --------------------------------------------------------------------------
-   4. TYPOGRAPHY & COMMON ELEMENTS
-   -------------------------------------------------------------------------- */
-h1.page-title,
-h2.section-title {
-  font-size: 2.2rem;
-  font-weight: 500;
-  margin-bottom: 10px;
-  line-height: 1.25;
-}
-h3 {
-  font-size: 1.25rem;
-  font-weight: 600;
-}
-.short-accent-line,
-.short-line {
-  width: 40px;
-  height: 2px;
-  background-color: var(--primary-teal);
-  margin: 10px auto 25px;
-}
-.divider-line {
-  border: 0;
-  height: 1px;
-  background: var(--border-light);
-  margin: 15px 0 35px;
-}
-/* Buttons */
-.btn-outline {
-  display: inline-block;
-  padding: 10px 24px;
-  border: 1px solid var(--primary-teal);
-  color: var(--primary-teal);
-  border-radius: 20px;
-  font-size: 0.95rem;
-  font-weight: 500;
-  background: transparent;
-}
-.btn-outline:hover {
-  background-color: var(--primary-teal);
-  color: #ffffff;
-}
-.btn-green,
-.btn-green-solid {
-  display: inline-block;
-  padding: 10px 22px;
-  background-color: var(--primary-green);
-  color: #ffffff;
-  border-radius: 4px;
-  font-size: 0.9rem;
-  font-weight: 500;
-  text-align: center;
-}
-.btn-green:hover,
-.btn-green-solid:hover {
-  opacity: 0.9;
-}
-/* --------------------------------------------------------------------------
-   5. HOME PAGE STYLES (index.html)
-   -------------------------------------------------------------------------- */
-.section-home1 {
-  padding: 50px 0;
-}
-.home1-container {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  align-items: center;
-}
-.hero-title {
-  font-size: 2.8rem;
-  color: var(--primary-teal);
-  line-height: 1.15;
-  margin-bottom: 15px;
-}
-.hero-subtitle {
-  font-size: 1.15rem;
-  color: var(--text-muted);
-  margin-bottom: 25px;
-}
-.section-home2 {
-  padding: var(--section-padding);
-}
-.subject-card {
-  background-color: #ffffff;
-  padding: 20px;
-  text-align: left;
-}
-.subject-title {
-  color: var(--text-dark);
-  margin: 15px 0 10px;
-}
-.subject-desc {
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  line-height: 1.5;
-}
-/* Package Card */
-.package-card {
-  background-color: var(--light-mint);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  border-radius: 4px;
-  text-align: center;
-}
-.package-content {
-  padding: 30px 25px;
-}
-.package-title {
-  color: var(--primary-teal);
-  margin-bottom: 12px;
-}
-.package-desc {
-  font-size: 0.9rem;
-  color: var(--text-dark);
-  margin-bottom: 20px;
-}
-/* Flatlay Background Cards (Section 7, About Contact, Apprentice) */
-.section-home7,
-.section-about3,
-.section-apprentice {
-  padding: 80px 20px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: relative;
-}
-.articles-card,
-.contact-card-white,
-.apprentice-card-white {
-  background-color: rgba(255, 255, 255, 0.96);
-  max-width: 650px;
+.hero-container {
+  max-width: 850px;
   margin: 0 auto;
-  padding: 40px 30px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  border-radius: 2px;
   text-align: center;
 }
-.contact-card-white {
-  display: flex;
-  flex-direction: column;
+.hero-container h1 {
+  font-size: 2.8rem;
+  color: var(--primary-navy);
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+.hero-subtext {
+  font-size: 1.05rem;
+  color: #4a5568;
+  line-height: 1.7;
+}
+.packages-grid-section {
+  padding: 60px 0;
+  background-color: #ffffff;
+}
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
   gap: 20px;
-  max-width: 800px;
-  width: 100%;
 }
-.contact-col {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.contact-label {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  margin-bottom: 4px;
-}
-.contact-value {
-  font-size: 0.95rem;
-  color: var(--text-dark);
-  word-break: break-all;
-}
-/* Featured News Dual Cards (Section 8) */
-.section-home8 {
-  padding: var(--section-padding);
-}
-.flex-news {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-.news-card {
-  padding: 35px;
-  flex: 1;
-}
-.news-card-green {
-  background-color: var(--primary-green);
-  color: #ffffff;
-}
-.news-card-blue {
-  background-color: var(--dark-navy);
-  color: #ffffff;
-}
-.news-title {
-  font-size: 1.5rem;
-  color: #ffffff;
-  margin: 20px 0 15px;
-}
-.news-title-light {
-  font-size: 1.3rem;
-  color: #ffffff;
-  margin-bottom: 15px;
-}
-.news-desc,
-.news-desc-light {
-  font-size: 0.9rem;
-  line-height: 1.6;
-  opacity: 0.9;
-  margin-bottom: 15px;
-}
-.news-link,
-.news-link-light {
-  display: inline-block;
-  color: #ffffff;
-  text-decoration: underline;
-  font-size: 0.9rem;
-  margin-top: 10px;
-}
-/* Section 9: Diamond Grid & Brochure */
-.section-home9 {
-  padding: var(--section-padding);
-  background-color: #fcfcfc;
-}
-.flex-home9 {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  align-items: center;
-}
-.diamonds-wrapper {
-  max-width: 400px;
-  margin: 0 auto 20px;
-}
-.brochure-card {
-  background-color: var(--primary-green);
-  color: #ffffff;
-  padding: 40px 30px;
+.package-card {
   text-align: center;
-  border-radius: 2px;
+}
+.card-img-wrapper {
   width: 100%;
-}
-.brochure-title { font-size: 1.2rem; font-weight: 400; opacity: 0.9; margin-bottom: 10px; }
-.brochure-heading { font-size: 1.6rem; margin-bottom: 10px; }
-.brochure-sub { font-size: 0.9rem; opacity: 0.85; margin-bottom: 25px; }
-.pdf-icon-wrap {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  margin-bottom: 25px;
-  font-size: 1rem;
-}
-.btn-download {
-  display: inline-block;
-  border: 1px solid #ffffff;
-  color: #ffffff;
-  padding: 8px 20px;
-  border-radius: 3px;
-  font-size: 0.9rem;
-}
-/* --------------------------------------------------------------------------
-   6. ABOUT US & TEAM LEADERS STYLES (about.html & meetthetutors.html)
-   -------------------------------------------------------------------------- */
-.section-about1,
-.section-about2,
-.section-tutors-grid {
-  padding: var(--section-padding);
-}
-.team-card,
-.tutor-card {
-  background-color: var(--light-mint);
-  border-radius: 4px;
+  height: 160px;
+  border-radius: 6px;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  text-align: left;
+  margin-bottom: 15px;
+  background-color: #CCDCFF;
 }
-.member-photo-wrap,
-.tutor-photo-wrap {
-  position: relative;
+.card-img-wrapper img {
   width: 100%;
-}
-.gray-portrait {
-  filter: grayscale(100%);
-  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
-.badge-on-leave {
-  position: absolute;
-  bottom: 15px;
-  right: 15px;
-  background-color: rgba(255, 255, 255, 0.85);
-  color: #333;
-  padding: 4px 12px;
-  font-size: 0.9rem;
-  border-radius: 3px;
-  font-style: italic;
-}
-.card-body-green,
-.tutor-card-body {
-  padding: 25px 20px;
-}
-.member-name,
-.tutor-name {
-  font-size: 1.2rem;
-  margin-bottom: 4px;
-  color: var(--text-dark);
-}
-.member-role,
-.tutor-subject {
-  font-size: 0.9rem;
-  font-weight: 600;
-  margin-bottom: 12px;
-}
-.member-bio,
-.tutor-bio {
-  font-size: 0.88rem;
-  color: #444444;
-  line-height: 1.5;
-  margin-bottom: 12px;
-}
-.tutor-note {
-  font-size: 0.82rem;
-  color: #555555;
-  font-style: italic;
-  margin-bottom: 15px;
-}
-.btn-credentials {
-  display: inline-block;
-  background-color: #0b5345;
-  color: #ffffff;
-  padding: 6px 14px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  border-radius: 2px;
-  margin-bottom: 12px;
-}
-.tutor-schedule {
-  font-size: 0.82rem;
-  color: var(--text-dark);
-  line-height: 1.4;
-}
-/* --------------------------------------------------------------------------
-   7. MEDIA QUERIES (DESKTOP & TABLET RESPONSIVENESS)
-   -------------------------------------------------------------------------- */
-/* Tablet & Up (768px +) */
-@media (min-width: 768px) {
-  .grid-3-col {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .grid-2x2 {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .flex-2-col {
-    flex-direction: row;
-  }
-  .home1-container {
-    flex-direction: row;
-    align-items: center;
-  }
-  .home1-left,
-  .home1-right {
-    flex: 1;
-  }
-  .contact-card-white {
-    flex-direction: row;
-    justify-content: space-around;
-  }
-  .flex-news {
-    flex-direction: row;
-  }
-  .flex-home9 {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  .home9-left,
-  .home9-right {
-    flex: 1;
-  }
-}
-/* Mobile Adjustments (Under 767px) */
-@media (max-width: 767px) {
-  :root {
-    --section-padding: 35px 15px;
-  }
-  h1.page-title,
-  h2.section-title {
-    font-size: 1.75rem;
-  }
-  .hero-title {
-    font-size: 2rem;
-  }
-  .articles-card,
-  .contact-card-white,
-  .apprentice-card-white {
-    padding: 25px 15px;
-  }
-}
-
-/* --------------------------------------------------------------------------
-   8. BOOKING FORM STYLES (booking.html)
-   -------------------------------------------------------------------------- */
-.booking-form-wrapper {
-  background-color: #ffffff;
-  padding: 10px 0;
-}
-
-.form-group {
-  margin-bottom: 22px;
-}
-
-.form-group label {
-  display: block;
-  font-size: 0.9rem;
-  color: var(--text-dark);
+.package-card h3 {
+  font-size: 1.05rem;
+  color: var(--primary-navy);
   margin-bottom: 8px;
-  line-height: 1.4;
 }
-
-.form-input {
-  width: 100%;
-  padding: 12px 15px;
-  background-color: #e2ece9; /* Soft greenish light gray matching target design */
-  border: 1px solid transparent;
-  border-radius: 6px;
-  font-size: 0.95rem;
-  color: #333333;
-  box-sizing: border-box;
-  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+.package-card p {
+  font-size: 0.85rem;
+  color: #666;
 }
-
-.form-input:focus {
-  outline: none;
+.our-promos-text-section {
+  padding: 20px 0 60px 0;
   background-color: #ffffff;
-  border-color: var(--primary-teal);
 }
-
-.schedule-block {
+.text-content {
+  max-width: 900px;
+}
+.text-content h2 {
+  font-size: 2rem;
+  color: var(--primary-navy);
+  margin-bottom: 20px;
+}
+.text-content p {
+  margin-bottom: 15px;
+  color: #4a5568;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+.promo-details-grid-section {
+  padding: 60px 0;
+  background-color: #CCDCFF;
+}
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+.detail-item {
+  background: #ffffff;
+  padding: 30px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+  text-align: center;
+  border: 1px solid #80A8FF;
+}
+.icon-box {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 20px auto;
+  background-color: var(--light-blue);
+  color: var(--primary-navy);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+.detail-item h3 {
+  font-size: 1.2rem;
+  color: var(--primary-navy);
+  margin-bottom: 12px;
+}
+.detail-item p {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 8px;
+}
+.detail-item .disclaimer {
+  font-size: 0.8rem;
+  color: #888;
+  font-style: italic;
+}
+.split-banner-section {
+  display: flex;
+  background-color: var(--primary-navy);
+  color: #ffffff;
+  min-height: 500px;
+}
+.split-left {
+  flex: 1;
+  overflow: hidden;
+}
+.split-left img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.split-right {
+  flex: 1;
+  padding: 60px 40px;
+  display: flex;
+  align-items: center;
+}
+.split-card {
+  max-width: 500px;
+}
+.split-card h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+.split-card .subtitle {
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+  color: #CCDCFF;
+}
+.split-card .tagline {
+  font-style: italic;
+  margin-bottom: 25px;
+  color: var(--accent-yellow);
+}
+.inline-form .inline-row {
+  display: flex;
+  gap: 15px;
   margin-bottom: 15px;
 }
-
-.schedule-label {
-  font-size: 0.85rem;
-  color: var(--text-muted);
+.inline-form .field {
+  flex: 1;
+  margin-bottom: 15px;
+}
+.inline-form label {
   display: block;
+  font-size: 0.85rem;
   margin-bottom: 5px;
 }
-
-.schedule-inputs-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1.5fr;
-  gap: 12px;
+.inline-form input, 
+.inline-form textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #0049E6;
+  background: rgba(255, 255, 255, 0.95);
+  color: #000;
+  font-family: inherit;
 }
-
-.payment-terms-box {
+.btn-submit-light {
+  background-color: var(--light-blue);
+  color: var(--primary-navy);
+  border: none;
+  padding: 10px 25px;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.bottom-contact-section {
+  padding: 80px 0;
   background-color: #ffffff;
-  padding: 20px 0;
-  font-size: 0.88rem;
-  line-height: 1.6;
-  color: #444444;
+  text-align: center;
 }
-
-/* Mobile responsive layout for schedule fields */
-@media (max-width: 600px) {
-  .schedule-inputs-grid {
-    grid-template-columns: 1fr 1fr;
-  }
+.bottom-contact-section h2 {
+  font-size: 2.2rem;
+  color: var(--primary-navy);
+  margin-bottom: 10px;
 }
+.contact-sub {
+  color: #666;
+  margin-bottom: 20px;
+}
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+.social-icons a {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--light-blue);
+  color: var(--primary-navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s;
+}
+.social-icons a:hover {
+  opacity: 0.8;
+}
+.main-contact-form {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+}
+.form-columns {
+  display: flex;
+  gap: 30px;
+}
+.left-col, .right-col {
+  flex:
